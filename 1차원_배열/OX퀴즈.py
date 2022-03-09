@@ -10,5 +10,3 @@ for i in range(n):
         else:
             cnt = 0
     print(score)
-            
-    
