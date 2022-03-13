@@ -7,4 +7,3 @@ for _ in range(T):
         for i in range(1, n):
             floor[i]+=floor[i-1]
     print(floor[-1])
-    
