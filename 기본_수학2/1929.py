@@ -1,10 +1,9 @@
 N, M = map(int,input().split())
-demical_list=[]
-
-for i in range(N,M + 1):
-    if i != 1:
-        for j in range(2, int(i**.5)+1):
-            if i % j == 0:
-                break
-        else:
-            print(i)
+demical_list=[True] *(M+1)
+for i in range(2, int(M**.5) + 1):
+    if demical_list[i] == True:
+        for j in range(i+i, M+1, i):
+            demical_list[j] = False
+for i in range(N,M+1):
+    if demical_list[i] == True:
+        print(i)
