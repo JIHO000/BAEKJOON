@@ -1,5 +1,4 @@
-N = int(input())
-M = int(input())
+N, M = map(int,input().split())
 demical_list=[]
 
 for i in range(N,M + 1):
@@ -8,9 +7,4 @@ for i in range(N,M + 1):
             if i % j == 0:
                 break
         else:
-            demical_list.append(i)
-if demical_list:
-    print(sum(demical_list))
-    print(demical_list[0])
-else: 
-    print(-1)
+            print(i)
