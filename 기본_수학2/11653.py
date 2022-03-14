@@ -1,8 +1,12 @@
 N = int(input())
 cnt = 2
 while N != 1:
-    if N % cnt == 0:
-        print(cnt)
-        N //= cnt
+    for i in range(cnt, int(N**.5) + 1):
+        if N % i == 0:
+            print(i)
+            N //= i
+            cnt = i
+            break
     else:
-        cnt += 1
+        print(N)
+        break
