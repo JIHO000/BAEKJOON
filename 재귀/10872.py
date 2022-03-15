@@ -1,16 +1,6 @@
-import collections
-
-class Solution:
-    dp = collections.defaultdict(int)
-
-    def fib(self, N: int) -> int:
-        if N <= 1:
-            return N
-
-        if self.dp[N]:
-            return self.dp[N]
-        self.dp[N] = self.fib(N - 1) + self.fib(N - 2)
-        return self.dp[N]
-    
-a = Solution()
-print(a.fib(int(input())))
+def factorial(n):
+    result = 1
+    if n > 0 :
+        result = n * factorial(n-1)
+    return result
+print(factorial(int(input())))
