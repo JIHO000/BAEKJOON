@@ -1,27 +1,16 @@
-from collections import defaultdict
-import sys
-input = sys.stdin.readline
+melon = int(input()) 
+values = [input().split() for _ in range(6)] 
+directions = [int(v[0]) for v in values] 
+lengths = [int(v[1]) for v in values] 
+max_lengths, box_lengths = [], [] 
 
-fruit = int(input())
-area = defaultdict(list)
+for i in range(1, 5):
+    if directions.count(i) == 1: 
+        max_lengths.append(lengths[directions.index(i)]) 
+        temp = directions.index(i) + 3 
+        if temp >= 6:
+            temp -= 6 
+        box_lengths.append(lengths[temp]) 
 
-for i in range(6):
-    dir, length = map(int, input().split())
-    area[dir].append(length,i)
-
-max_length_idx = []
-min_length_idx = []
-for i in area:
-    if len(area[i]) == 1:
-        max_length_idx.append(i)
-        idx = 1
-    else:
-        min_length_idx.append(i)
-        idx = 0
-
-if idx == 0:
-    ans = area[max_length_idx[0]][0] * area[max_length_idx[1]][0] - area[min_length_idx[0]][1] * area[min_length_idx[1]][0]
-else:
-    ans = area[max_length_idx[0]][0] * area[max_length_idx[1]][0] - area[min_length_idx[0]][0] * area[min_length_idx[1]][1]
-
-print (ans * fruit)
+area = max_lengths[0] * max_lengths[1] - box_lengths[0] * box_lengths[1]
+print(melon * area)
